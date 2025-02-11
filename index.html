@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Bigram Generator</title>
+        <link rel="icon" href="./Resources/js_icon.jpg" type="jpg">
+    </head>
+    <body style="background-color: rgb(44, 46, 54); color: whitesmoke; font-size: 24px;">
+        <h1>Basic Bigram GNT</h1>
+
+        <hr>
+        <p>Corpus</p>
+        <input type="file" id="corpus" single>
+        <button id="execute" onclick="window.main.exe()" style="display:block; width: 100%;">Build Model</button>
+        <hr>
+
+        <p>Generator</p>
+        <div style="display: flex">
+            <input type="range" id="wordcount_input" min="0" max="1000" step="1.0">
+            <p>Words To Generate: <output id="value"></output></p>
+        </div>
+        <button id="generate" onclick="window.generate()" style="display:block; width: 100%;">Generate Text</button>
+        <textarea placeholder="Type seed text here..." id="output" style="width: 95vw; height: 75vh; font-size: 16px;"></textarea>
+
+        <script type="module">
+            import { GNT } from "./Code/src/bigram-gnt.js";
+            window.main = new GNT();
+
+            window.generate = function(outputValue, wordCountInputValue) {
+                window.main.generate_text(document.getElementById("output").value, document.getElementById("wordcount_input").value);
+            }
+        </script>
+
+        <script>
+            function navigateRoot()
+            {
+                window.location.href = "./index.html";
+            }
+            document.getElementById("wordcount_input").addEventListener("input", (event) => {
+                document.getElementById("value").textContent = document.getElementById("wordcount_input").value;
+            });
+            document.getElementById("value").textContent = document.getElementById("wordcount_input").value;
+        </script>
+
+
+    </body>
+</html>
