@@ -7,3 +7,7 @@
 # Installation
  - This program can be run in any httpx environment capable of executing JavaScript.
  - A working version is **already available at:** https://tools.snailien.net/Basic-GNT/
+
+# History
+ - This project was originally written by Brendan Rood on or about 2024-05-18.
+ - This project was first uploaded to GitHub on 2025-02-11.
